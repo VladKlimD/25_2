@@ -2,8 +2,11 @@
 #include <fstream>
 #include <vector>
 #include "disk.h"
+#include "ram.h"
 
-void save(std::vector<int>& input_Buffer) {
+void save() {
+    std::vector<int> input_Buffer;
+    write(input_Buffer);
     std::ofstream file("data.txt");
     if (!file.is_open()) {
         std::cerr << "Cannot open the file\n";
@@ -15,7 +18,8 @@ void save(std::vector<int>& input_Buffer) {
     file.close();
 }
 
-void load(std::vector<int>& input_Buffer) {
+void load() {
+    std::vector<int> input_Buffer;
     std::ifstream file("data.txt");
     if (!file.is_open()) {
         std::cerr << "Cannot open the file\n";
@@ -31,4 +35,5 @@ void load(std::vector<int>& input_Buffer) {
     }
     file.close();
     input_Buffer.pop_back();
+    read(input_Buffer);
 }

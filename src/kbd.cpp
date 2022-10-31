@@ -1,10 +1,15 @@
 #include <iostream>
 #include <vector>
 #include "kbd.h"
+#include "ram.h"
 
-void write(std::vector<int>& input_Buffer) {
+void input() {
+    std::vector<int> input_Buffer;
     std::cout << "Input buffer:\n";
-    for (int i = 0; i < input_Buffer.size(); i++) {
-        std::cin >> input_Buffer[i];
+    for (int i = 0; i < 8; i++) {
+        int buffer_Element;
+        std::cin >> buffer_Element;
+        input_Buffer.push_back(buffer_Element);
     }
+    read(input_Buffer);
 }
